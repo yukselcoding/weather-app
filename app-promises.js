@@ -23,7 +23,7 @@ var geocodeAddress = (address) => {
         var encodedAddress = encodeURIComponent(address);
 
         request({
-            url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyASYOdcNPZjnVcB8rlKQNnWmvuvZqWzzFs`,
+            url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=APIKEY`,
             json: true
         }, (error, response, body) => {
             if (error) {
@@ -46,7 +46,7 @@ geocodeAddress(encodedAddress).then((location) => {
     console.log(JSON.stringify(location, undefined, 2));
     return new Promise((resolve, reject) => {
         request({
-            url: ` https://api.darksky.net/forecast/1f8ec619819b374498352623771989fa/${location.latitude},${location.longtitude}`,
+            url: ` https://api.darksky.net/forecast/APIKEY/${location.latitude},${location.longtitude}`,
             json: true
         }, (error, response, body) => {
             if (error)
